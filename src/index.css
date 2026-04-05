@@ -6,7 +6,7 @@
 
   --color-card: #141a1f;
 
-  --color-primary: #20b2a6;
+  --color-primary: #5c97ab;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #1f2830;
@@ -53,6 +53,12 @@
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border), 80%, transparent);
   }
+
+  .glow-border {
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent),
+      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
 }
 
 @layer utilities {
@@ -68,7 +74,65 @@
       filter: blur(0);
     }
   }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes dot-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(20%, -30px);
+    }
+    50% {
+      transform: translate(-15px, -20px);
+    }
+    75% {
+      transform: translate(30px, 10px);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+  .animate-delay-800 {
+    animation-delay: 800ms;
+  }
+  .animate-delay-900 {
+    animation-delay: 900ms;
   }
 }

@@ -1,27 +1,52 @@
 import Button from "@/components/Button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   {
     href: "#about",
     number: "01",
     label: "About",
+    className: "animate-delay-300 animate-fade-in hover:text-primary",
   },
   {
     href: "#experience",
     number: "02",
     label: "Experience",
+    className: "animate-delay-500 animate-fade-in hover:text-primary",
   },
   {
     href: "#work",
     number: "03",
     label: "Work",
+    className: "animate-delay-700 animate-fade-in hover:text-primary",
+  },
+  {
+    href: "#contact",
+    number: "04",
+    label: "Contact",
+    className: "animate-delay-900 animate-fade-in hover:text-primary",
   },
 ];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleMobileMenu = () => {
     if (isMobileMenuOpen) {
@@ -32,10 +57,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="py-5">
-      <nav className="container mx-auto px-6 flex item-center justify-between">
+    <header
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-stronger py-3" : "bg-transparent py-5"} z-50`}
+    >
+      <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
-          className="text-xl tracking-tight font-bold hover:text-primary"
+          className="text-xl tracking-tight font-bold hover:text-primary animate-fade-in"
           href="#"
         >
           BO<span className="text-primary">.</span>
@@ -43,7 +70,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-5 items-center">
           {navLinks.map((link, index) => (
-            <a className="hover:text-primary" key={index} href={link.href}>
+            <a className={link.className} key={index} href={link.href}>
               <span className="mr-1">
                 {link.number}
                 <span className="text-primary text-lg">.</span>
@@ -51,7 +78,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <div className="hidden md:block">
+          <div className="hidden md:block animate-delay-900 animate-fade-in">
             <Button size="sm">Resume</Button>
           </div>
         </div>
@@ -77,6 +104,7 @@ const Navbar = () => {
               <a
                 className="hover:text-primary py-2"
                 key={index}
+                onClick={() => setIsMobileMenuOpen(false)}
                 href={link.href}
               >
                 <span className="mr-1">
