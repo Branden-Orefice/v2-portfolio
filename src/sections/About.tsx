@@ -1,30 +1,3 @@
-import {
-  faDocker,
-  faJs,
-  faNodeJs,
-  faReact,
-  faTypescript,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const technologies = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "GraphQL",
-  "Docker",
-  "AWS",
-  "MongoDB",
-  "PostgreSQL",
-  "Redis",
-  "Git",
-  "CI/CD",
-  "Testing (Jest, Cypress)",
-  "Agile Methodologies",
-];
-
 const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
@@ -37,6 +10,7 @@ const About = () => {
               <span className="text-xl font-medium tracking-wider">
                 About Me
               </span>
+              <span className="block relative -top-3.75 left-35 w-65 bg-primary h-px"></span>
             </div>
             <div className="space-y-4 text-muted-foreground animate-fade-in animate-delay-200">
               <p>
@@ -58,36 +32,117 @@ const About = () => {
               </p>
             </div>
           </div>
-          {/* Technologies List */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="glass p-6 rounded-2xl animate-fade-in">
-              <h3 className="text-lg font-semibold mb-4 text-muted-foreground">
-                Frontend
-              </h3>
+          {/* Marquee */}
+          <div className="flex items-center justify-center w-full gap-4">
+            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
+              <div className="marquee-cover" />
 
-              <FontAwesomeIcon
-                className="text-primary glass-stronger rounded-full p-3"
-                icon={faJs}
-              />
-              <FontAwesomeIcon
-                className="text-primary glass-stronger rounded-full p-3"
-                icon={faTypescript}
-              />
-              <FontAwesomeIcon
-                className="text-primary glass-stronger rounded-full p-3"
-                icon={faReact}
-              />
+              <div className="track-vertical">
+                <div className="marquee-column">
+                  {[
+                    "/icons/aws.webp",
+                    "/icons/css.webp",
+                    "/icons/digitalocean.webp",
+                    "/icons/docker.webp",
+                    "/icons/express.webp",
+                    "/icons/git.webp",
+                    "/icons/html.webp",
+                    "/icons/javascript.webp",
+                    "/icons/next.webp",
+                    "/icons/nginx.webp",
+                    "/icons/node.webp",
+                    "/icons/nodemon.webp",
+                    "/icons/postgres-sql.webp",
+                    "/icons/postman.webp",
+                    "/icons/react.webp",
+                    "/icons/redis.webp",
+                    "/icons/tailwind.webp",
+                    "/icons/typescript.webp",
+                  ].map((src, index) => (
+                    <div className="icon-container" key={`left-${index}`}>
+                      <img
+                        src={src}
+                        alt="tech logo"
+                        className="icon icon-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="glass p-6 rounded-2xl animate-fade-in">
-              <h3>Database & Infrastructure</h3>
-              <FontAwesomeIcon icon={faDocker} />
+
+            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
+              <div className="marquee-cover" />
+
+              <div className="track-vertical-reverse">
+                <div className="marquee-column">
+                  {[
+                    "/icons/typescript.webp",
+                    "/icons/digitalocean.webp",
+                    "/icons/next.webp",
+                    "/icons/aws.webp",
+                    "/icons/node.webp",
+                    "/icons/css.webp",
+                    "/icons/redis.webp",
+                    "/icons/docker.webp",
+                    "/icons/express.webp",
+                    "/icons/postgres-sql.webp",
+                    "/icons/git.webp",
+                    "/icons/nginx.webp",
+                    "/icons/html.webp",
+                    "/icons/tailwind.webp",
+                    "/icons/javascript.webp",
+                    "/icons/nodemon.webp",
+                    "/icons/postman.webp",
+                    "/icons/react.webp",
+                  ].map((src, index) => (
+                    <div className="icon-container" key={`middle-${index}`}>
+                      <img
+                        src={src}
+                        alt="tech logo"
+                        className="icon icon-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="glass p-6 rounded-2xl animate-fade-in">
-              <h3>Libraries</h3>
-            </div>
-            <div className="glass p-6 rounded-2xl animate-fade-in">
-              <h3>Runtime</h3>
-              <FontAwesomeIcon icon={faNodeJs} />
+
+            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
+              <div className="marquee-cover" />
+
+              <div className="track-vertical">
+                <div className="marquee-column">
+                  {[
+                    "/icons/aws.webp",
+                    "/icons/tailwind.webp",
+                    "/icons/digitalocean.webp",
+                    "/icons/javascript.webp",
+                    "/icons/docker.webp",
+                    "/icons/git.webp",
+                    "/icons/next.webp",
+                    "/icons/html.webp",
+                    "/icons/css.webp",
+                    "/icons/react.webp",
+                    "/icons/nginx.webp",
+                    "/icons/express.webp",
+                    "/icons/node.webp",
+                    "/icons/typescript.webp",
+                    "/icons/nodemon.webp",
+                    "/icons/postgres-sql.webp",
+                    "/icons/redis.webp",
+                    "/icons/postman.webp",
+                  ].map((src, index) => (
+                    <div className="icon-container" key={`right-${index}`}>
+                      <img
+                        src={src}
+                        alt="tech logo"
+                        className="icon icon-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -33,7 +33,6 @@ const Hero = () => {
         index++;
         setTimeout(typeNext, 50);
       } else {
-        // Typing done, wait then move on to next phase
         setTimeout(() => {
           if (phase === "bubble1") setPhase("bubble2");
           if (phase === "bubble2") setPhase("hero");
@@ -83,9 +82,9 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 pt-20 pb-20 relative z-10">
         <div className="space-y-8">
-          {/* Bubble 1 - unmounts when done, sits above everything */}
+          {/* Bubble 1 unmounts when done, sits above everything */}
           {phase === "bubble1" && (
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass text-sm text-primary">
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look text-md text-primary">
               <img
                 alt="developer of portfolio"
                 src="/hero-img.webp"
@@ -95,9 +94,9 @@ const Hero = () => {
             </div>
           )}
 
-          {/* Bubble 2 + Hero are always in the DOM together, never move */}
+          {/* Bubble 2 & Hero are always in the DOM together, never move */}
           <div
-            className={`inline-flex items-center gap-2 px-6 py-2 rounded-full glass text-sm text-primary transition-opacity duration-300 ${phase === "bubble2" || phase === "hero" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            className={`inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look  text-primary text-md transition-opacity duration-300 ${phase === "bubble2" || phase === "hero" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
           >
             <img
               alt="developer of portfolio"
@@ -153,9 +152,6 @@ const Hero = () => {
           href="#about"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
         >
-          <span className="text-sm font-medium uppercase tracking-wider">
-            Scroll
-          </span>
           <Mouse className="animate-bounce" />
         </a>
       </div>

@@ -58,14 +58,14 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-stronger py-3" : "bg-transparent py-5"} z-50`}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "stronger-glass-look py-3" : "bg-transparent py-5"} z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
           className="text-xl tracking-tight font-bold hover:text-primary animate-fade-in"
           href="#"
         >
-          BO<span className="text-primary">.</span>
+          Branden<span className="text-primary">.</span>Dev
         </a>
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-5 items-center">
@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-stronger animate-fade-in">
+        <div className="md:hidden stronger-glass-look animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <a
