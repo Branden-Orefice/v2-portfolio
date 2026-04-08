@@ -44,6 +44,7 @@ const Hero = () => {
 
   const dots = useMemo(() => {
     return [...Array(30)].map((_, index) => ({
+      id: `dot-${index}`,
       left: Math.random() * 100,
       top: Math.random() * 100,
       duration: 15 + Math.random() * 20,
@@ -65,9 +66,9 @@ const Hero = () => {
 
       {/* Glass Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {dots.map((dot, index) => (
+        {dots.map((dot) => (
           <div
-            key={index}
+            key={dot.id}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#5c97ab",

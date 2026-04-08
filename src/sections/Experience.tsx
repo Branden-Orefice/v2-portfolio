@@ -1,16 +1,12 @@
 const Experience = () => {
   return (
-    <section id="experience">
-      <div className="max-w-3xl mb-16">
+    <section id="experience" className="py-32 relative overflow-hidden">
+      <div className="max-w-3xl mb-16 container relative px-10">
         <span className="text-primary">02.</span>{" "}
         <span className="text-xl font-medium tracking-wider">
           Where I've Worked
         </span>
-      </div>
-
-      {/* Timeline of Experience */}
-      <div className="relative">
-        <div className="timeline-glow" />
+        <span className="block relative -top-3.75 left-60 w-65 bg-primary h-px"></span>
       </div>
     </section>
   );

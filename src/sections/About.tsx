@@ -1,3 +1,40 @@
+const shuffleIcons = (icons: string[]) => {
+  for (let i = icons.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [icons[i], icons[j]] = [icons[j], icons[i]];
+  }
+  return icons;
+};
+
+const techIcons = [
+  "/icons/aws.webp",
+  "/icons/css.webp",
+  "/icons/digitalocean.webp",
+  "/icons/docker.webp",
+  "/icons/express.webp",
+  "/icons/git.webp",
+  "/icons/html.webp",
+  "/icons/javascript.webp",
+  "/icons/next.webp",
+  "/icons/nginx.webp",
+  "/icons/node.webp",
+  "/icons/nodemon.webp",
+  "/icons/postgres-sql.webp",
+  "/icons/postman.webp",
+  "/icons/react.webp",
+  "/icons/redis.webp",
+  "/icons/tailwind.webp",
+  "/icons/typescript.webp",
+];
+
+const leftColumnIcons = shuffleIcons([...techIcons]);
+const middleColumnIcons = shuffleIcons([...techIcons]);
+const rightColumnIcons = shuffleIcons([...techIcons]);
+
+console.log("Left Column Icons:", leftColumnIcons);
+console.log("Middle Column Icons:", middleColumnIcons);
+console.log("Right Column Icons:", rightColumnIcons);
+
 const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
@@ -39,26 +76,7 @@ const About = () => {
 
               <div className="track-vertical">
                 <div className="marquee-column">
-                  {[
-                    "/icons/aws.webp",
-                    "/icons/css.webp",
-                    "/icons/digitalocean.webp",
-                    "/icons/docker.webp",
-                    "/icons/express.webp",
-                    "/icons/git.webp",
-                    "/icons/html.webp",
-                    "/icons/javascript.webp",
-                    "/icons/next.webp",
-                    "/icons/nginx.webp",
-                    "/icons/node.webp",
-                    "/icons/nodemon.webp",
-                    "/icons/postgres-sql.webp",
-                    "/icons/postman.webp",
-                    "/icons/react.webp",
-                    "/icons/redis.webp",
-                    "/icons/tailwind.webp",
-                    "/icons/typescript.webp",
-                  ].map((src, index) => (
+                  {leftColumnIcons.map((src, index) => (
                     <div className="icon-container" key={`left-${index}`}>
                       <img
                         src={src}
@@ -76,26 +94,7 @@ const About = () => {
 
               <div className="track-vertical-reverse">
                 <div className="marquee-column">
-                  {[
-                    "/icons/typescript.webp",
-                    "/icons/digitalocean.webp",
-                    "/icons/next.webp",
-                    "/icons/aws.webp",
-                    "/icons/node.webp",
-                    "/icons/css.webp",
-                    "/icons/redis.webp",
-                    "/icons/docker.webp",
-                    "/icons/express.webp",
-                    "/icons/postgres-sql.webp",
-                    "/icons/git.webp",
-                    "/icons/nginx.webp",
-                    "/icons/html.webp",
-                    "/icons/tailwind.webp",
-                    "/icons/javascript.webp",
-                    "/icons/nodemon.webp",
-                    "/icons/postman.webp",
-                    "/icons/react.webp",
-                  ].map((src, index) => (
+                  {middleColumnIcons.map((src, index) => (
                     <div className="icon-container" key={`middle-${index}`}>
                       <img
                         src={src}
@@ -113,26 +112,7 @@ const About = () => {
 
               <div className="track-vertical">
                 <div className="marquee-column">
-                  {[
-                    "/icons/aws.webp",
-                    "/icons/tailwind.webp",
-                    "/icons/digitalocean.webp",
-                    "/icons/javascript.webp",
-                    "/icons/docker.webp",
-                    "/icons/git.webp",
-                    "/icons/next.webp",
-                    "/icons/html.webp",
-                    "/icons/css.webp",
-                    "/icons/react.webp",
-                    "/icons/nginx.webp",
-                    "/icons/express.webp",
-                    "/icons/node.webp",
-                    "/icons/typescript.webp",
-                    "/icons/nodemon.webp",
-                    "/icons/postgres-sql.webp",
-                    "/icons/redis.webp",
-                    "/icons/postman.webp",
-                  ].map((src, index) => (
+                  {rightColumnIcons.map((src, index) => (
                     <div className="icon-container" key={`right-${index}`}>
                       <img
                         src={src}
