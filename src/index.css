@@ -202,6 +202,22 @@
     animation: marquee-vertical-reverse 40s linear infinite;
   }
 
+  @keyframes marquee-vertical-reverse-casino {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+  .track-vertical-reverse-casino {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee-vertical-reverse 2s linear infinite;
+  }
+
   .timeline-glow {
     box-shadow:
       0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),

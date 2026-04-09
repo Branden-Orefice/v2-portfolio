@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const shuffleIcons = (icons: string[]) => {
   for (let i = icons.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -31,11 +33,40 @@ const leftColumnIcons = shuffleIcons([...techIcons]);
 const middleColumnIcons = shuffleIcons([...techIcons]);
 const rightColumnIcons = shuffleIcons([...techIcons]);
 
-console.log("Left Column Icons:", leftColumnIcons);
-console.log("Middle Column Icons:", middleColumnIcons);
-console.log("Right Column Icons:", rightColumnIcons);
-
 const About = () => {
+  const [showCasinoButton, setShowCasinoButton] = useState(false);
+  const [animate, setAnimate] = useState(false);
+  const [winner, setWinner] = useState(false);
+  const [result, setResult] = useState<string[] | null>(null);
+
+  const handleRenderButton = () => {
+    setShowCasinoButton(true);
+  };
+
+  const handleAnimation = () => {
+    setWinner(false);
+    setResult(null);
+    setAnimate(true);
+
+    setTimeout(() => {
+      setAnimate(false);
+
+      const left =
+        leftColumnIcons[Math.floor(Math.random() * leftColumnIcons.length)];
+      const middle =
+        middleColumnIcons[Math.floor(Math.random() * middleColumnIcons.length)];
+      const right =
+        rightColumnIcons[Math.floor(Math.random() * rightColumnIcons.length)];
+
+      const finalResult = [left, middle, right];
+      setResult(finalResult);
+
+      if (left === middle && middle === right) {
+        setWinner(true);
+      }
+    }, 5000);
+  };
+
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -65,7 +96,25 @@ const About = () => {
               </p>
               <p>
                 When I'm not coding, you can find me golfing, watching movies,
-                spending time with my wife, or playing games with my friends.
+                occasionally hitting the{" "}
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={handleRenderButton}
+                  className="group/casino inline-flex lg:cursor-[url('/huff-n-puff-wolf.png')_,pointer]"
+                >
+                  <span className="group-hover/casino:text-[#ffdf01] transition duration-75 group-hover/casino:-translate-x-1 delay-[50ms]">
+                    sl
+                  </span>
+                  <span className="group-hover/casino:text-[#eb1509] transition duration-75 group-hover/casino:-translate-x-1 delay-[75ms]">
+                    o
+                  </span>
+                  <span className="group-hover/casino:text-[#116fef] transition duration-75 group-hover/casino:-translate-x-1 delay-[100ms]">
+                    ts
+                  </span>
+                  , spending time with my wife, or playing games with my
+                  friends.
+                </span>
               </p>
             </div>
           </div>
@@ -74,57 +123,156 @@ const About = () => {
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
               <div className="marquee-cover" />
 
-              <div className="track-vertical">
-                <div className="marquee-column">
-                  {leftColumnIcons.map((src, index) => (
-                    <div className="icon-container" key={`left-${index}`}>
-                      <img
-                        src={src}
-                        alt="tech logo"
-                        className="icon icon-image"
-                      />
-                    </div>
-                  ))}
+              {animate ? (
+                <div className="track-vertical-reverse-casino">
+                  <div className="marquee-column">
+                    {leftColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : result ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="icon-container">
+                    <img
+                      src={result[0]}
+                      alt="final left result"
+                      className="icon icon-image"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="track-vertical">
+                  <div className="marquee-column">
+                    {leftColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
               <div className="marquee-cover" />
 
-              <div className="track-vertical-reverse">
-                <div className="marquee-column">
-                  {middleColumnIcons.map((src, index) => (
-                    <div className="icon-container" key={`middle-${index}`}>
-                      <img
-                        src={src}
-                        alt="tech logo"
-                        className="icon icon-image"
-                      />
-                    </div>
-                  ))}
+              {animate ? (
+                <div className="track-vertical-reverse-casino">
+                  <div className="marquee-column">
+                    {middleColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : result ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="icon-container">
+                    <img
+                      src={result[1]}
+                      alt="final middle result"
+                      className="icon icon-image"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="track-vertical-reverse">
+                  <div className="marquee-column">
+                    {middleColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
               <div className="marquee-cover" />
 
-              <div className="track-vertical">
-                <div className="marquee-column">
-                  {rightColumnIcons.map((src, index) => (
-                    <div className="icon-container" key={`right-${index}`}>
-                      <img
-                        src={src}
-                        alt="tech logo"
-                        className="icon icon-image"
-                      />
-                    </div>
-                  ))}
+              {animate ? (
+                <div className="track-vertical-reverse-casino">
+                  <div className="marquee-column">
+                    {rightColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : result ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="icon-container">
+                    <img
+                      src={result[2]}
+                      alt="final right result"
+                      className="icon icon-image"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="track-vertical">
+                  <div className="marquee-column">
+                    {rightColumnIcons.map((src, index) => (
+                      <div className="icon-container" key={`left-${index}`}>
+                        <img
+                          src={src}
+                          alt="tech logo"
+                          className="icon icon-image"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
+          {winner && (
+            <div className="absolute bottom-20 right-0 bg-yellow-400 text-black px-4 py-2 rounded-xl font-bold animate-bounce shadow-lg">
+              🎉 Congrats Winner!
+            </div>
+          )}
+          {result && !winner && !animate && (
+            <div className="absolute bottom-20 right-0 bg-black/60 text-muted-foreground px-4 py-2 rounded-xl shadow-lg">
+              Try Again 🎰
+            </div>
+          )}
+          {showCasinoButton && (
+            <div className="absolute right-0 bottom-0 translate-x-5.5">
+              <button
+                onClick={handleAnimation}
+                disabled={animate}
+                className="uppercase text-black/90 bg-red-800 border border-red-800 rounded-full py-2 max-w-11 cursor-pointer font-semibold disabled:opacity-50"
+              >
+                spin
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
