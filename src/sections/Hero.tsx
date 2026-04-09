@@ -42,7 +42,7 @@ const Hero = () => {
     setTimeout(typeNext, 50);
   }, [phase]);
 
-  const dots = useMemo(() => {
+  const squares = useMemo(() => {
     return [...Array(30)].map((_, index) => ({
       id: `dot-${index}`,
       left: Math.random() * 100,
@@ -57,25 +57,25 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.webp"
+          src="/images/hero-bg.webp"
           alt="hero background of cyber space grid"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-linear-to-l from-background/20 via-background/80 to-background" />
       </div>
 
-      {/* Glass Dots */}
+      {/* Glass Squares */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {dots.map((dot) => (
+        {squares.map((square) => (
           <div
-            key={dot.id}
-            className="absolute w-1.5 h-1.5 rounded-full opacity-60"
+            key={square.id}
+            className="absolute w-1.5 h-1.5 opacity-60"
             style={{
               backgroundColor: "#5c97ab",
-              left: `${dot.left}%`,
-              top: `${dot.top}%`,
-              animation: `dot-drift ${dot.duration}s ease-in-out infinite`,
-              animationDelay: `${dot.delay}s`,
+              left: `${square.left}%`,
+              top: `${square.top}%`,
+              animation: `dot-drift ${square.duration}s ease-in-out infinite`,
+              animationDelay: `${square.delay}s`,
             }}
           />
         ))}
@@ -88,7 +88,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look text-md text-primary">
               <img
                 alt="developer of portfolio"
-                src="/hero-img.webp"
+                src="/images/hero-img.webp"
                 className="rounded-full w-10 h-10"
               />
               {typed}
@@ -101,7 +101,7 @@ const Hero = () => {
           >
             <img
               alt="developer of portfolio"
-              src="/hero-img.webp"
+              src="/images/hero-img.webp"
               className="rounded-full w-10 h-10"
             />
             {typed}
@@ -130,7 +130,7 @@ const Hero = () => {
                 <FontAwesomeIcon
                   icon={faGithub}
                   size="xl"
-                  className="glass-stronger p-2 rounded-full hover:text-primary/80 transistion-all duration-300"
+                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
                 />
               </a>
               <a
@@ -141,7 +141,7 @@ const Hero = () => {
                 <FontAwesomeIcon
                   icon={faLinkedin}
                   size="xl"
-                  className="glass-stronger p-2 rounded-full hover:text-primary/80 transition-all duration-300"
+                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
                 />
               </a>
             </div>

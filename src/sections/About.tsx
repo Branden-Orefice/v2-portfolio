@@ -73,12 +73,20 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* About Content */}
           <div className="space-y-8">
-            <div className="animate-fade-in">
+            <div className="animate-fade-in mb-16">
               <span className="text-primary">01.</span>{" "}
               <span className="text-xl font-medium tracking-wider">
                 About Me
               </span>
-              <span className="block relative -top-3.75 left-35 w-65 bg-primary h-px"></span>
+              <span className="block relative -top-3.75 left-60 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)">
+                {[0.4, 1, 1, 1].map((opacity, index) => (
+                  <div
+                    key={index}
+                    style={{ opacity, right: `${index * 18}px` }}
+                    className="absolute top-1/2 mr-2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-l-[10px] border-t-transparent border-b-transparent border-l-primary flex gap-2"
+                  />
+                ))}
+              </span>
             </div>
             <div className="space-y-4 text-muted-foreground animate-fade-in animate-delay-200">
               <p>
@@ -101,7 +109,7 @@ const About = () => {
                   role="button"
                   tabIndex={0}
                   onClick={handleRenderButton}
-                  className="group/casino inline-flex lg:cursor-[url('/huff-n-puff-wolf.png')_,pointer]"
+                  className="group/casino inline-flex lg:cursor-[url('/images/huff-n-puff-wolf.png')_,pointer]"
                 >
                   <span className="group-hover/casino:text-[#ffdf01] transition duration-75 group-hover/casino:-translate-x-1 delay-[50ms]">
                     sl
