@@ -1,4 +1,5 @@
 import { useState } from "react";
+import GlowOrb from "@/components/GlowOrb";
 
 const shuffleIcons = (icons: string[]) => {
   for (let i = icons.length - 1; i > 0; i--) {
@@ -68,7 +69,21 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-64 relative overflow-hidden">
+      <GlowOrb top="30%" left="22%" size={500} />
+      <GlowOrb
+        top="52%"
+        left="65%"
+        size={350}
+        color="var(--color-secondary-foreground)"
+      />
+      <div
+        className="absolute top-0 inset-x-0 h-72 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(92,151,171,0.08), transparent 70%)",
+        }}
+      />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* About Content */}
@@ -78,17 +93,10 @@ const About = () => {
               <span className="text-xl font-medium tracking-wider">
                 About Me
               </span>
-              <span className="block relative -top-3.75 left-60 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)">
-                {[0.4, 1, 1, 1].map((opacity, index) => (
-                  <div
-                    key={index}
-                    style={{ opacity, right: `${index * 18}px` }}
-                    className="absolute top-1/2 mr-2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-l-[10px] border-t-transparent border-b-transparent border-l-primary flex gap-2"
-                  />
-                ))}
-              </span>
+              <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)"></span>
             </div>
             <div className="space-y-4 text-muted-foreground animate-fade-in animate-delay-200">
+              <div className="absolute -left-4 top-1 bottom-0 w-[2px] bg-linear-to-b from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)]" />
               <p>
                 Hi there! I'm Branden, a passionate software engineer with a
                 love for building innovative web applications. My journey in
@@ -129,7 +137,7 @@ const About = () => {
           {/* Marquee */}
           <div className="flex items-center justify-center w-full gap-4">
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover" />
+              <div className="marquee-cover rounded-2xl" />
 
               {animate ? (
                 <div className="track-vertical-reverse-casino">
@@ -173,7 +181,7 @@ const About = () => {
             </div>
 
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover" />
+              <div className="marquee-cover rounded-2xl" />
 
               {animate ? (
                 <div className="track-vertical-reverse-casino">
@@ -217,7 +225,7 @@ const About = () => {
             </div>
 
             <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover" />
+              <div className="marquee-cover rounded-2xl" />
 
               {animate ? (
                 <div className="track-vertical-reverse-casino">

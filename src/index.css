@@ -10,7 +10,7 @@
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  --color-secondary-foreground: #4a7a8f;
 
   --color-muted: #252e37;
   --color-muted-foreground: #7a8491;
@@ -26,6 +26,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    line-height: 1.5;
   }
 
   html {
@@ -218,9 +219,42 @@
     animation: marquee-vertical-reverse 2s linear infinite;
   }
 
+  @keyframes orb-pulse {
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.12;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+  }
+
+  @keyframes ping-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+
+  .animate-ping-ring {
+    animation: ping-ring 2s ease-out infinite;
+  }
+
   .timeline-glow {
     box-shadow:
       0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+  .slot-machine-frame {
+    background: color-mix(in srgb, var(--color-primary) 85%, transparent);
+    backdrop-filter: blur(24px);
+    animation: shake 0.5s ease-in-out infinite;
   }
 }
