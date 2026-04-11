@@ -44,7 +44,7 @@ const Hero = () => {
 
   const squares = useMemo(() => {
     return [...Array(30)].map((_, index) => ({
-      id: `dot-${index}`,
+      id: `square-${index}`,
       left: Math.random() * 100,
       top: Math.random() * 100,
       duration: 15 + Math.random() * 20,

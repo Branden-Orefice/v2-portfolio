@@ -1,5 +1,7 @@
 import { useState } from "react";
 import GlowOrb from "@/components/GlowOrb";
+import SlotMachine from "@/components/about-section/SlotMachine";
+import MarqueeColumn from "@/components/about-section/MarqueeColumn";
 
 const shuffleIcons = (icons: string[]) => {
   for (let i = icons.length - 1; i > 0; i--) {
@@ -35,37 +37,9 @@ const middleColumnIcons = shuffleIcons([...techIcons]);
 const rightColumnIcons = shuffleIcons([...techIcons]);
 
 const About = () => {
-  const [showCasinoButton, setShowCasinoButton] = useState(false);
-  const [animate, setAnimate] = useState(false);
-  const [winner, setWinner] = useState(false);
-  const [result, setResult] = useState<string[] | null>(null);
-
-  const handleRenderButton = () => {
-    setShowCasinoButton(true);
-  };
-
-  const handleAnimation = () => {
-    setWinner(false);
-    setResult(null);
-    setAnimate(true);
-
-    setTimeout(() => {
-      setAnimate(false);
-
-      const left =
-        leftColumnIcons[Math.floor(Math.random() * leftColumnIcons.length)];
-      const middle =
-        middleColumnIcons[Math.floor(Math.random() * middleColumnIcons.length)];
-      const right =
-        rightColumnIcons[Math.floor(Math.random() * rightColumnIcons.length)];
-
-      const finalResult = [left, middle, right];
-      setResult(finalResult);
-
-      if (left === middle && middle === right) {
-        setWinner(true);
-      }
-    }, 5000);
+  const [showMachine, setShowMachine] = useState(false);
+  const handleRenderSlot = () => {
+    setShowMachine(true);
   };
 
   return (
@@ -116,7 +90,7 @@ const About = () => {
                 <span
                   role="button"
                   tabIndex={0}
-                  onClick={handleRenderButton}
+                  onClick={handleRenderSlot}
                   className="group/casino inline-flex lg:cursor-[url('/images/huff-n-puff-wolf.png')_,pointer]"
                 >
                   <span className="group-hover/casino:text-[#ffdf01] transition duration-75 group-hover/casino:-translate-x-1 delay-[50ms]">
@@ -135,158 +109,13 @@ const About = () => {
             </div>
           </div>
           {/* Marquee */}
-          <div className="flex items-center justify-center w-full gap-4">
-            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover rounded-2xl" />
-
-              {animate ? (
-                <div className="track-vertical-reverse-casino">
-                  <div className="marquee-column">
-                    {leftColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : result ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="icon-container">
-                    <img
-                      src={result[0]}
-                      alt="final left result"
-                      className="icon icon-image"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="track-vertical">
-                  <div className="marquee-column">
-                    {leftColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover rounded-2xl" />
-
-              {animate ? (
-                <div className="track-vertical-reverse-casino">
-                  <div className="marquee-column">
-                    {middleColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : result ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="icon-container">
-                    <img
-                      src={result[1]}
-                      alt="final middle result"
-                      className="icon icon-image"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="track-vertical-reverse">
-                  <div className="marquee-column">
-                    {middleColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="relative flex overflow-hidden w-full h-80 justify-center items-start flex-1">
-              <div className="marquee-cover rounded-2xl" />
-
-              {animate ? (
-                <div className="track-vertical-reverse-casino">
-                  <div className="marquee-column">
-                    {rightColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : result ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="icon-container">
-                    <img
-                      src={result[2]}
-                      alt="final right result"
-                      className="icon icon-image"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="track-vertical">
-                  <div className="marquee-column">
-                    {rightColumnIcons.map((src, index) => (
-                      <div className="icon-container" key={`left-${index}`}>
-                        <img
-                          src={src}
-                          alt="tech logo"
-                          className="icon icon-image"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-          {winner && (
-            <div className="absolute bottom-20 right-0 bg-yellow-400 text-black px-4 py-2 rounded-xl font-bold animate-bounce shadow-lg">
-              🎉 Congrats Winner!
-            </div>
-          )}
-          {result && !winner && !animate && (
-            <div className="absolute bottom-20 right-0 bg-black/60 text-muted-foreground px-4 py-2 rounded-xl shadow-lg">
-              Try Again 🎰
-            </div>
-          )}
-          {showCasinoButton && (
-            <div className="absolute right-0 bottom-0 translate-x-5.5">
-              <button
-                onClick={handleAnimation}
-                disabled={animate}
-                className="uppercase text-black/90 bg-red-800 border border-red-800 rounded-full py-2 max-w-11 cursor-pointer font-semibold disabled:opacity-50"
-              >
-                spin
-              </button>
+          {showMachine ? (
+            <SlotMachine onClose={() => setShowMachine(false)} />
+          ) : (
+            <div className="flex items-center justify-center gap-4 w-full">
+              <MarqueeColumn items={leftColumnIcons} index={0} />
+              <MarqueeColumn items={middleColumnIcons} reverse index={1} />
+              <MarqueeColumn items={rightColumnIcons} index={2} />
             </div>
           )}
         </div>
