@@ -1,43 +1,51 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FeaturedCard from "@/components/work-section/FeaturedCard";
+import SmallCard from "@/components/work-section/SmallCard";
+import GlowOrb from "@/components/GlowOrb";
 
 const projects = [
   {
     title: "brandenorefice.com (v1)",
-    description: "First iteration of my portfolio site.",
-    image: "/images/first-portfolio.png",
+    description:
+      "First iteration of my portfolio site. Built with HTML, JavaScript, and CSS. Features dark-mode/light-mode, image hovering effect, and responsive design.",
+    image: "/images/first-portfolio.webp",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
-    github: "#",
+    link: "https://www.brandenorefice.com",
+    github: "https://www.github.com/branden-orefice/personal-website",
+    featured: true,
+  },
+  {
+    title: "Sound Wave",
+    description:
+      "Create playlists and share with your friends. Search by artist, album, or song, create a playlist and generate them right to your personal Spotify account.",
+    image: "/images/playlist.webp",
+    tags: ["JavaScript", "Express", "Axios", "React"],
+    link: "https://sound-wave-app-efde8f11e684.herokuapp.com/",
+    github: "https://www.github.com/Branden-Orefice/Sound-Wave",
+    featured: false,
   },
   {
     title: "brandenorefice.com (v1)",
     description: "First iteration of my portfolio site.",
-    image: "/images/first-portfolio.png",
+    image: "/images/first-portfolio.webp",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "#",
     github: "#",
+    featured: false,
   },
   {
     title: "brandenorefice.com (v1)",
     description: "First iteration of my portfolio site.",
-    image: "/images/first-portfolio.png",
+    image: "/images/first-portfolio.webp",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "#",
     github: "#",
-  },
-  {
-    title: "brandenorefice.com (v1)",
-    description: "First iteration of my portfolio site.",
-    image: "/images/first-portfolio.png",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
-    github: "#",
+    featured: false,
   },
 ];
 
 const Work = () => {
+  const featured = projects.filter((project) => project.featured);
+  const notFeatured = projects.filter((project) => !project.featured);
   return (
     <section id="work" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -46,46 +54,18 @@ const Work = () => {
           <span className="text-xl font-medium tracking-wider">
             Things I've Built
           </span>
-          <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)"></span>
+          <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)]"></span>
         </div>
         {/* Project Cards */}
-        <div className="relative">
-          {projects.map((project, index) => (
-            <div key={index} className="stronger-glass-look w-full h-full">
-              <img src={project.image} alt={project.image} />
-              <h3 className="text-xl font-semibold">{project.title}</h3>
-              <p>{project.description}</p>
-              <a
-                href="https://github.com/branden-orefice/personal-website"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faGithub}
-                  size="xl"
-                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
-                />
-              </a>
-              <a
-                href="https://brandenorefice.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faArrowUpRightFromSquare}
-                  size="xl"
-                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
-                />
-              </a>
-              {project.tags.map((projectTech, projectTechIndex) => (
-                <span
-                  key={projectTechIndex}
-                  className="inline-block bg-primary/10 text-muted-foreground text-xs px-2 py-1 rounded mr-2 mb-2"
-                >
-                  {projectTech}
-                </span>
-              ))}
-            </div>
+        <div className="flex flex-col gap-10 mb-12">
+          <GlowOrb top="15%" left="80%" />
+          {featured.map((project, index) => (
+            <FeaturedCard key={`-${index}`} project={project} index={index} />
+          ))}
+        </div>
+        <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+          {notFeatured.map((project, index) => (
+            <SmallCard key={`small-${index}`} project={project} />
           ))}
         </div>
       </div>
