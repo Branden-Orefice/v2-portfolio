@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Button from "@/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
@@ -121,7 +120,9 @@ const Hero = () => {
             </p>
             {/* Call To Action */}
             <div className="flex items-center gap-2">
-              <Button size="lg">Contact Me</Button>
+              <a href="#contact" className="button button--large">
+                Contact Me
+              </a>
               <a
                 href="https://github.com/branden-orefice"
                 target="_blank"
