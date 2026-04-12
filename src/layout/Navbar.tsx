@@ -1,4 +1,3 @@
-import Button from "@/components/Button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -79,7 +78,13 @@ const Navbar = () => {
             </a>
           ))}
           <div className="hidden md:block animate-delay-900 animate-fade-in">
-            <Button size="sm">Resume</Button>
+            <a
+              className="button button--small"
+              href="https://resume-branden.vercel.app/"
+              target="_blank"
+            >
+              Resume
+            </a>
           </div>
         </div>
 
@@ -114,8 +119,13 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-
-            <Button>Resume</Button>
+            <a
+              className="button button--small text-center"
+              href="https://resume-branden.vercel.app/"
+              target="_blank"
+            >
+              Resume
+            </a>
           </div>
         </div>
       )}

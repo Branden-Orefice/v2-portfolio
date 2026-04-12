@@ -93,16 +93,13 @@ const SlotMachine = ({ onClose }: { onClose: () => void }) => {
       <Confetti active={showConfetti} />
 
       <div
-        className="rounded-2xl overflow-hidden relative"
+        className={`rounded-2xl overflow-hidden relative ${
+          shake ? "animate-shake-it" : ""
+        }`}
         style={{
           background:
             "color-mix(in srgb, var(--color-surface), 85%, transparent)",
           border: `1px solid ${winner ? "border-primary/60" : "border-primary"}`,
-          animation: shake
-            ? "animate-shake-it"
-            : winner
-              ? "animate-winner-glow"
-              : "none",
           transition: "border-color 0.5s",
         }}
       >

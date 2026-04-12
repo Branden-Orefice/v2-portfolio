@@ -53,50 +53,37 @@
     border: 1px solid color-mix(in srgb, var(--color-border), 80%, transparent);
   }
 
-  .marquee-cover {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      var(--color-surface) 0%,
-      transparent 18%,
-      transparent 82%,
-      var(--color-surface) 100%
-    );
+  .button {
+    position: relative;
+    overflow: hidden;
+    border-radius: 100px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
   }
 
-  .marquee-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+  .button--default {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
   }
 
-  .icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 110px;
-    border-radius: 16px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0;
+  .button--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 
-  .icon {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
+  .button:hover {
+    border-color: var(--color-muted-foreground);
+    color: var(--color-muted-foreground);
   }
 
-  .icon-image {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
+  .button:focus {
+    outline: none;
   }
 }
 
@@ -116,15 +103,6 @@
 
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
   }
 
   @keyframes dot-drift {
@@ -334,6 +312,20 @@
 
   .animate-ping-ring {
     animation: ping-ring 2s ease-out infinite;
+  }
+
+  @keyframes border-glow {
+    0%,
+    100% {
+      border-color: rgba(92, 151, 171, 0.2);
+    }
+    50% {
+      border-color: rgba(92, 151, 171, 0.45);
+    }
+  }
+
+  .animate-border-glow {
+    animation: border-glow 4s ease-in-out infinite 1s;
   }
 
   .timeline-glow {

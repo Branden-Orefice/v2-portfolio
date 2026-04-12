@@ -46,8 +46,6 @@ const SmallCard = ({ project }: { project: ProjectValues }) => {
           ))}
         </div>
       </div>
-      {/* Bottom Glow */}
-      <div className="absolute bottom-0 left-7 bg-primary w-4/5 h-px opacity-0 group-hover:opacity-100 transition-all duration-300 transform-translate-x-1/2 shadow-[0_0_20px_rgba(92,151,171,0.66)]" />
     </div>
   );
 };
