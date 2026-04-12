@@ -9,7 +9,7 @@ const projects = [
       "First iteration of my portfolio site. Built with HTML, JavaScript, and CSS. Features dark-mode/light-mode, image hovering effect, and responsive design.",
     image: "/images/first-portfolio.webp",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://www.v1.brandenorefice.com",
+    link: "https://v1.brandenorefice.com",
     github: "https://www.github.com/branden-orefice/personal-website",
     featured: true,
   },
