@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import Confetti from "./Confetti";
 import Reel from "@/components/about-section/Reel";
 
@@ -44,16 +44,15 @@ const SlotMachine = ({ onClose }: { onClose: () => void }) => {
   const middleColumnIcons = useMemo(() => shuffleIcons(techIcons), []);
   const rightColumnIcons = useMemo(() => shuffleIcons(techIcons), []);
 
-  const spinCountRef = useRef(0);
-
   const handleSpin = () => {
     if (spinning) return;
     setWinner(false);
     setResult(null);
     setShowConfetti(false);
     setSpinning(true);
-    spinCountRef.current += 1;
-    const count = spinCountRef.current;
+    const newCount = spinCount + 1;
+    setSpinCount(newCount);
+    const count = newCount;
     const forceWin = count % 10 === 0 || (count > 5 && Math.random() < 0.12);
 
     setTimeout(() => {
