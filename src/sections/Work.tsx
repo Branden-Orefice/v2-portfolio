@@ -54,7 +54,7 @@ const Work = () => {
           <span className="text-xl font-medium tracking-wider">
             Things I've Built
           </span>
-          <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)]"></span>
+          <span className="block relative top-1 left-4 w-65 h-px gradient-glow-l"></span>
         </div>
         {/* Project Cards */}
         <div className="flex flex-col gap-10 mb-12">

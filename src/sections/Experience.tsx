@@ -48,10 +48,10 @@ const Experience = () => {
           <span className="text-xl font-medium tracking-wider">
             Where I've Worked
           </span>
-          <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)"></span>
+          <span className="block relative top-1 left-4 w-65 h-px gradient-glow-l"></span>
         </div>
         <div className="relative">
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-linear-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(92,151,171,0.8)" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] gradient-glow-b md:-translate-x-1/2" />
 
           <div className="space-y-8">
             {/* Timeline + Cards */}

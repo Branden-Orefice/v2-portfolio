@@ -86,10 +86,6 @@
     border-color: var(--color-muted-foreground);
     color: var(--color-muted-foreground);
   }
-
-  .button:focus {
-    outline: none;
-  }
 }
 
 @layer utilities {
@@ -110,7 +106,7 @@
     animation: fade-in 0.8s ease-out both;
   }
 
-  @keyframes dot-drift {
+  @keyframes square-drift {
     0%,
     100% {
       transform: translate(0, 0);
@@ -140,18 +136,6 @@
   }
   .animate-delay-500 {
     animation-delay: 500ms;
-  }
-  .animate-delay-600 {
-    animation-delay: 600ms;
-  }
-  .animate-delay-700 {
-    animation-delay: 700ms;
-  }
-  .animate-delay-800 {
-    animation-delay: 800ms;
-  }
-  .animate-delay-900 {
-    animation-delay: 900ms;
   }
 
   @keyframes confetti-fall {
@@ -333,15 +317,55 @@
     animation: border-glow 4s ease-in-out infinite 1s;
   }
 
-  .timeline-glow {
-    box-shadow:
-      0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
-  }
-
   .slot-machine-frame {
     background: color-mix(in srgb, var(--color-primary) 85%, transparent);
     backdrop-filter: blur(24px);
     animation: shake 0.5s ease-in-out infinite;
+  }
+
+  .gradient-glow-b {
+    background: linear-gradient(
+      to bottom,
+      rgba(92, 151, 171, 0.7),
+      rgba(92, 151, 171, 0.3),
+      transparent
+    );
+    box-shadow: 0 0 25px rgba(92, 151, 171, 0.8);
+  }
+
+  .gradient-glow-l {
+    background: linear-gradient(
+      to left,
+      rgba(92, 151, 171, 0.7),
+      rgba(92, 151, 171, 0.3),
+      transparent
+    );
+    box-shadow: 0 0 25px rgba(92, 151, 171, 0.8);
+  }
+
+  .gradient-b-primary {
+    background: linear-gradient(
+      to bottom,
+      rgba(92, 151, 171, 0.7),
+      rgba(92, 151, 171, 0.3),
+      transparent
+    );
+  }
+
+  .gradient-border-l {
+    background: linear-gradient(to left, transparent, #2a2f36);
+  }
+
+  .gradient-border-r {
+    background: linear-gradient(to right, transparent, #2a2f36);
+  }
+
+  .gradient-overlay-hero {
+    background: linear-gradient(
+      to left,
+      rgba(15, 20, 24, 0.2),
+      rgba(15, 20, 24, 0.8),
+      #0f1418
+    );
   }
 }

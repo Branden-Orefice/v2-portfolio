@@ -45,6 +45,7 @@ const About = () => {
   return (
     <section id="about" className="py-64 relative overflow-hidden">
       <GlowOrb top="30%" left="22%" size={500} />
+
       <GlowOrb
         top="52%"
         left="65%"
@@ -67,10 +68,10 @@ const About = () => {
               <span className="text-xl font-medium tracking-wider">
                 About Me
               </span>
-              <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)"></span>
+              <span className="block relative top-1 left-4 w-65 h-px gradient-glow-l"></span>
             </div>
             <div className="space-y-4 text-muted-foreground animate-fade-in animate-delay-200">
-              <div className="absolute -left-4 top-1 bottom-0 w-[2px] bg-linear-to-b from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)]" />
+              <div className="absolute -left-4 top-1 bottom-0 w-[2px] gradient-glow-b" />
               <p>
                 Hi there! I'm Branden, a passionate software engineer with a
                 love for building innovative web applications. My journey in
@@ -93,18 +94,17 @@ const About = () => {
                   onClick={handleRenderSlot}
                   className="group/casino inline-flex lg:cursor-[url('/images/huff-n-puff-wolf.png')_,pointer]"
                 >
-                  <span className="group-hover/casino:text-[#ffdf01] transition duration-75 group-hover/casino:-translate-x-1 delay-[50ms]">
+                  <span className="group-hover/casino:text-[#ffdf01] transition duration-75 group-hover/casino:-translate-y-1 delay-[50ms]">
                     sl
                   </span>
-                  <span className="group-hover/casino:text-[#eb1509] transition duration-75 group-hover/casino:-translate-x-1 delay-[75ms]">
+                  <span className="group-hover/casino:text-[#eb1509] transition duration-75 group-hover/casino:-translate-y-1 delay-[75ms]">
                     o
                   </span>
-                  <span className="group-hover/casino:text-[#116fef] transition duration-75 group-hover/casino:-translate-x-1 delay-[100ms]">
+                  <span className="group-hover/casino:text-[#116fef] transition duration-75 group-hover/casino:-translate-y-1 delay-[100ms]">
                     ts
                   </span>
-                  , spending time with my wife, or playing games with my
-                  friends.
                 </span>
+                , spending time with my wife, or playing games with my friends.
               </p>
             </div>
           </div>

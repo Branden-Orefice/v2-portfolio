@@ -60,7 +60,7 @@ const Hero = () => {
           alt="hero background of cyber space grid"
           className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-linear-to-l from-background/20 via-background/80 to-background" />
+        <div className="absolute inset-0 gradient-overlay-hero" />
       </div>
 
       {/* Glass Squares */}
@@ -73,7 +73,7 @@ const Hero = () => {
               backgroundColor: "#5c97ab",
               left: `${square.left}%`,
               top: `${square.top}%`,
-              animation: `dot-drift ${square.duration}s ease-in-out infinite`,
+              animation: `square-drift ${square.duration}s ease-in-out infinite`,
               animationDelay: `${square.delay}s`,
             }}
           />

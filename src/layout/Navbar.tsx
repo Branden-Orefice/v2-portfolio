@@ -6,25 +6,25 @@ const navLinks = [
     href: "#about",
     number: "01",
     label: "About",
-    className: "animate-delay-300 animate-fade-in hover:text-primary",
+    className: "animate-delay-200 animate-fade-in hover:text-primary",
   },
   {
     href: "#experience",
     number: "02",
     label: "Experience",
-    className: "animate-delay-500 animate-fade-in hover:text-primary",
+    className: "animate-delay-300 animate-fade-in hover:text-primary",
   },
   {
     href: "#work",
     number: "03",
     label: "Work",
-    className: "animate-delay-700 animate-fade-in hover:text-primary",
+    className: "animate-delay-400 animate-fade-in hover:text-primary",
   },
   {
     href: "#contact",
     number: "04",
     label: "Contact",
-    className: "animate-delay-900 animate-fade-in hover:text-primary",
+    className: "animate-delay-500 animate-fade-in hover:text-primary",
   },
 ];
 
@@ -61,23 +61,28 @@ const Navbar = () => {
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
-          className="text-xl tracking-tight font-bold hover:text-primary animate-fade-in"
+          className="text-xl tracking-tight font-bold hover:text-primary animate-fade-in animate-delay-100"
           href="#"
         >
-          Branden<span className="text-primary">.</span>Dev
+          <span className="md:hidden">
+            BO<span className="text-primary">.</span>
+          </span>
+          <span className="hidden md:inline">
+            Branden<span className="text-primary">.</span>Dev
+          </span>
         </a>
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-5 items-center">
           {navLinks.map((link, index) => (
             <a className={link.className} key={index} href={link.href}>
-              <span className="mr-1">
+              <span className="mr-1 text-sm">
                 {link.number}
                 <span className="text-primary text-lg">.</span>
               </span>
               {link.label}
             </a>
           ))}
-          <div className="hidden md:block animate-delay-900 animate-fade-in">
+          <div className="hidden md:block animate-delay-600 animate-fade-in">
             <a
               className="button button--small"
               href="https://resume-branden.vercel.app/"
@@ -112,7 +117,7 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 href={link.href}
               >
-                <span className="mr-1">
+                <span className="mr-1 text-sm">
                   {link.number}
                   <span className="text-primary text-lg">.</span>
                 </span>

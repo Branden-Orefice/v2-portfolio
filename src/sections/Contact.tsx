@@ -12,7 +12,7 @@ const Contact = () => {
           <span className="text-xl font-medium tracking-wider">
             Get In Touch
           </span>
-          <span className="block relative top-1 left-4 w-65 h-px bg-linear-to-l from-primary/70 via-primary/30 to-transparent shadow-[0_0_25px_rgba(92,151,171,0.8)"></span>
+          <span className="block relative top-1 left-4 w-65 h-px gradient-glow-l"></span>
         </div>
         <div className="flex justify-center">
           <div className="border glass-look rounded-2xl max-w-3xl w-full px-10 py-14 text-center animate-border-glow">
