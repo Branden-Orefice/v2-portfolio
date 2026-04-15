@@ -86,6 +86,10 @@
     border-color: var(--color-muted-foreground);
     color: var(--color-muted-foreground);
   }
+
+  .orb-background {
+    background: radial-gradient(circle, var(--color-primary), transparent 30%);
+  }
 }
 
 @layer utilities {
@@ -288,6 +292,10 @@
     }
   }
 
+  .animate-orb-pulse {
+    animation: orb-pulse 8s ease-in-out infinite;
+  }
+
   @keyframes ping-ring {
     0% {
       transform: scale(1);
@@ -360,12 +368,54 @@
     background: linear-gradient(to right, transparent, #2a2f36);
   }
 
+  .gradient-b-transparent {
+    background: linear-gradient(
+      to bottom,
+      rgba(92, 151, 171, 0.4),
+      transparent
+    );
+  }
+
   .gradient-overlay-hero {
     background: linear-gradient(
       to left,
       rgba(15, 20, 24, 0.2),
       rgba(15, 20, 24, 0.8),
       #0f1418
+    );
+  }
+
+  .gradient-surface-fade {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 35, 41, 0.6),
+      transparent,
+      rgba(26, 35, 41, 0.6)
+    );
+  }
+
+  .gradient-transparent-primary {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(92, 151, 171, 0.5),
+      transparent
+    );
+  }
+
+  .gradient-radial-top {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--color-primary) 8%, transparent),
+      transparent 70%
+    );
+  }
+
+  .gradient-radial-bottom {
+    background: radial-gradient(
+      ellipse at 50% 100%,
+      color-mix(in srgb, var(--color-primary) 8%, transparent),
+      transparent 70%
     );
   }
 }

@@ -1,8 +1,4 @@
-interface MarqueeColumnProps {
-  items: string[];
-  reverse?: boolean;
-  index?: number;
-}
+import type { MarqueeColumnProps } from "@/utils/types";
 
 const MarqueeColumn = ({
   items,

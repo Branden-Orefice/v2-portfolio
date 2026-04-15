@@ -1,12 +1,15 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GlowOrb from "@/components/GlowOrb";
 import { Send } from "lucide-react";
 
 const Contact = () => {
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="absolute bottom-0 inset-x-0 h-72 pointer-events-none gradient-radial-bottom" />
       <div className="container mx-auto px-6 relative z-10">
+        <GlowOrb className="xl:top-[5%] xl:left-[3%] lg:top-[5%] lg:left-[5%]  md:top-[6%] md:left-[6%] sm:top-[4%] sm:left-[4%] size-[500px]" />
         <div className="max-w-3xl mb-16">
           <span className="text-primary">04.</span>{" "}
           <span className="text-xl font-medium tracking-wider">

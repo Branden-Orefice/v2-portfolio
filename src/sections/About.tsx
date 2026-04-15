@@ -2,39 +2,11 @@ import { useState } from "react";
 import GlowOrb from "@/components/GlowOrb";
 import SlotMachine from "@/components/about-section/SlotMachine";
 import MarqueeColumn from "@/components/about-section/MarqueeColumn";
+import { shuffleIcons, techIcons } from "@/utils/shuffleIcons";
 
-const shuffleIcons = (icons: string[]) => {
-  for (let i = icons.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [icons[i], icons[j]] = [icons[j], icons[i]];
-  }
-  return icons;
-};
-
-const techIcons = [
-  "/icons/aws.webp",
-  "/icons/css.webp",
-  "/icons/digitalocean.webp",
-  "/icons/docker.webp",
-  "/icons/express.webp",
-  "/icons/git.webp",
-  "/icons/html.webp",
-  "/icons/javascript.webp",
-  "/icons/next.webp",
-  "/icons/nginx.webp",
-  "/icons/node.webp",
-  "/icons/nodemon.webp",
-  "/icons/postgres-sql.webp",
-  "/icons/postman.webp",
-  "/icons/react.webp",
-  "/icons/redis.webp",
-  "/icons/tailwind.webp",
-  "/icons/typescript.webp",
-];
-
-const leftColumnIcons = shuffleIcons([...techIcons]);
-const middleColumnIcons = shuffleIcons([...techIcons]);
-const rightColumnIcons = shuffleIcons([...techIcons]);
+const leftColumnIcons = shuffleIcons(techIcons);
+const middleColumnIcons = shuffleIcons(techIcons);
+const rightColumnIcons = shuffleIcons(techIcons);
 
 const About = () => {
   const [showMachine, setShowMachine] = useState(false);
@@ -44,24 +16,10 @@ const About = () => {
 
   return (
     <section id="about" className="py-64 relative overflow-hidden">
-      <GlowOrb top="30%" left="22%" size={500} />
-
-      <GlowOrb
-        top="52%"
-        left="65%"
-        size={350}
-        color="var(--color-secondary-foreground)"
-      />
-      <div
-        className="absolute top-0 inset-x-0 h-72 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(92,151,171,0.08), transparent 70%)",
-        }}
-      />
+      <GlowOrb className="md:top-[22%] md:left-[14%] lg:top-[29%] lg:left-[13%] sm:top-[22%] sm:left-[10%]  xl:left-[21%] xl:top-[33%] size-[500px]" />
+      <div className="absolute top-0 inset-x-0 h-72 pointer-events-none gradient-radial-top" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* About Content */}
           <div className="space-y-8">
             <div className="animate-fade-in mb-16">
               <span className="text-primary">01.</span>{" "}
@@ -108,9 +66,13 @@ const About = () => {
               </p>
             </div>
           </div>
-          {/* Marquee */}
           {showMachine ? (
-            <SlotMachine onClose={() => setShowMachine(false)} />
+            <SlotMachine
+              onClose={() => setShowMachine(false)}
+              leftColumnIcons={leftColumnIcons}
+              middleColumnIcons={middleColumnIcons}
+              rightColumnIcons={rightColumnIcons}
+            />
           ) : (
             <div className="flex items-center justify-center gap-4 w-full">
               <MarqueeColumn items={leftColumnIcons} index={0} />

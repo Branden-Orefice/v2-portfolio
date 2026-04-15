@@ -2,6 +2,7 @@ import GlowOrb from "@/components/GlowOrb";
 
 const experiences = [
   {
+    id: 1,
     company: "Freelance",
     position: "Software Developer",
     duration: "Jan 2026 - Present",
@@ -18,6 +19,7 @@ const experiences = [
     ],
   },
   {
+    id: 2,
     company: "DR Data Security",
     position: "Software Developer",
     duration: "Jan 2025 - Jan 2026",
@@ -40,10 +42,9 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="py-16 relative overflow-hidden">
-      <GlowOrb top="50%" left="50%" size={600} />
+      <GlowOrb className="top-[50%] left-[50%] sm:top-[55%] sm:left-[50%] size-[500px]" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mb-16">
-          {/* Heading */}
           <span className="text-primary">02.</span>{" "}
           <span className="text-xl font-medium tracking-wider">
             Where I've Worked
@@ -54,9 +55,8 @@ const Experience = () => {
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] gradient-glow-b md:-translate-x-1/2" />
 
           <div className="space-y-8">
-            {/* Timeline + Cards */}
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative grid md:grid-cols-2 gap-8">
+            {experiences.map((exp) => (
+              <div key={exp.id} className="relative grid md:grid-cols-2 gap-8">
                 {exp.current ? (
                   <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary -translate-x-1/2 animate-ping-ring" />
                 ) : (
@@ -64,7 +64,7 @@ const Experience = () => {
                 )}
                 <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary -translate-x-1/2"></div>
                 <div
-                  className={`pl-8 md:pl-0 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:col-start-2 md:pl-16"}`}
+                  className={`pl-8 md:pl-0 ${exp.id % 2 === 0 ? "md:pr-16 md:text-right" : "md:col-start-2 md:pl-16"}`}
                 >
                   <div
                     className={`glass-look p-6 rounded-2xl border border-primary/30 hover:border-primary/60 transition-all duration-500`}
@@ -78,7 +78,7 @@ const Experience = () => {
                     <div className="mt-4">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
-                          key={techIndex}
+                          key={`${exp.id}-${techIndex}`}
                           className="inline-block bg-primary/10 text-muted-foreground text-xs px-2 py-1 rounded mr-2 mb-2"
                         >
                           {tech}

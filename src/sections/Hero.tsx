@@ -53,7 +53,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/images/hero-bg.webp"
@@ -63,7 +62,6 @@ const Hero = () => {
         <div className="absolute inset-0 gradient-overlay-hero" />
       </div>
 
-      {/* Glass Squares */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {squares.map((square) => (
           <div
@@ -79,7 +77,7 @@ const Hero = () => {
           />
         ))}
       </div>
-      {/* Content */}
+
       <div className="container mx-auto px-6 pt-20 pb-20 relative z-10">
         <div className="space-y-8">
           {/* Bubble 1 unmounts when done, sits above everything */}
@@ -118,7 +116,7 @@ const Hero = () => {
               and Node. I focus on building scalable, accessible, and performant
               applications.
             </p>
-            {/* Call To Action */}
+
             <div className="flex items-center gap-2">
               <a href="#contact" className="button button--large">
                 Contact Me

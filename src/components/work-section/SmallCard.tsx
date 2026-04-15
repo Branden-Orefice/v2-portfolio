@@ -10,7 +10,6 @@ const SmallCard = ({ project }: { project: ProjectValues }) => {
       className={`group glass-look flex flex-col relative border border-surface rounded-2xl backdrop-blur-lg hover:border-primary/70 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(92,151,171,0.12),0_12px_40px_rgba(0,0,0,0.25)] hover:translate-y-1 opacity-100 transition-all duration-700`}
     >
       <ProjectImage project={project} />
-      {/* Top Section */}
       <div className="flex flex-1 flex-col p-[20px_22px_24px]">
         <div className="flex justify-between items-start mb-2.5">
           <h3 className="mr-3 flex-1 text-base font-semibold text-foreground">
@@ -31,14 +30,14 @@ const SmallCard = ({ project }: { project: ProjectValues }) => {
             </a>
           </div>
         </div>
-        {/* Bottom Section */}
+
         <p className="text-muted-foreground text-xs mb-4 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1.5">
-          {project.tags.map((projectTech: string, projectTechIndex: number) => (
+          {project.tags.map((projectTech: string, techIndex: number) => (
             <span
-              key={projectTechIndex}
+              key={`${project.id}-${techIndex}`}
               className="bg-primary/10 text-muted-foreground text-xs px-2 py-1 rounded"
             >
               {projectTech}

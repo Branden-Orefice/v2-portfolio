@@ -3,24 +3,28 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   {
+    id: 1,
     href: "#about",
     number: "01",
     label: "About",
     className: "animate-delay-200 animate-fade-in hover:text-primary",
   },
   {
+    id: 2,
     href: "#experience",
     number: "02",
     label: "Experience",
     className: "animate-delay-300 animate-fade-in hover:text-primary",
   },
   {
+    id: 3,
     href: "#work",
     number: "03",
     label: "Work",
     className: "animate-delay-400 animate-fade-in hover:text-primary",
   },
   {
+    id: 4,
     href: "#contact",
     number: "04",
     label: "Contact",
@@ -71,10 +75,10 @@ const Navbar = () => {
             Branden<span className="text-primary">.</span>Dev
           </span>
         </a>
-        {/* Desktop Navigation */}
+
         <div className="hidden md:flex gap-5 items-center">
-          {navLinks.map((link, index) => (
-            <a className={link.className} key={index} href={link.href}>
+          {navLinks.map((link) => (
+            <a className={link.className} key={link.id} href={link.href}>
               <span className="mr-1 text-sm">
                 {link.number}
                 <span className="text-primary text-lg">.</span>
@@ -93,7 +97,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 text-foreground"
           onClick={handleMobileMenu}
@@ -106,14 +109,13 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden stronger-glass-look animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <a
                 className="hover:text-primary py-2"
-                key={index}
+                key={link.id}
                 onClick={() => setIsMobileMenuOpen(false)}
                 href={link.href}
               >

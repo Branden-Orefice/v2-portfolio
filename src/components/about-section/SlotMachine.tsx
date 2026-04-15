@@ -1,48 +1,24 @@
-import { useMemo, useState } from "react";
-import Confetti from "./Confetti";
+import { useState } from "react";
+import Confetti from "@/components/about-section/Confetti";
 import Reel from "@/components/about-section/Reel";
 
-export const shuffleIcons = (icons: string[]) => {
-  const shuffled = [...icons];
-  for (let i = icons.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [icons[i], icons[j]] = [icons[j], icons[i]];
-  }
-  return shuffled;
-};
-
-const techIcons = [
-  "/icons/aws.webp",
-  "/icons/css.webp",
-  "/icons/digitalocean.webp",
-  "/icons/docker.webp",
-  "/icons/express.webp",
-  "/icons/git.webp",
-  "/icons/html.webp",
-  "/icons/javascript.webp",
-  "/icons/next.webp",
-  "/icons/nginx.webp",
-  "/icons/node.webp",
-  "/icons/nodemon.webp",
-  "/icons/postgres-sql.webp",
-  "/icons/postman.webp",
-  "/icons/react.webp",
-  "/icons/redis.webp",
-  "/icons/tailwind.webp",
-  "/icons/typescript.webp",
-];
-
-const SlotMachine = ({ onClose }: { onClose: () => void }) => {
+const SlotMachine = ({
+  onClose,
+  leftColumnIcons,
+  middleColumnIcons,
+  rightColumnIcons,
+}: {
+  onClose: () => void;
+  leftColumnIcons: string[];
+  middleColumnIcons: string[];
+  rightColumnIcons: string[];
+}) => {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<string[] | null>(null);
   const [winner, setWinner] = useState(false);
   const [shake, setShake] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [spinCount, setSpinCount] = useState(0);
-
-  const leftColumnIcons = useMemo(() => shuffleIcons(techIcons), []);
-  const middleColumnIcons = useMemo(() => shuffleIcons(techIcons), []);
-  const rightColumnIcons = useMemo(() => shuffleIcons(techIcons), []);
 
   const handleSpin = () => {
     if (spinning) return;
@@ -103,10 +79,9 @@ const SlotMachine = ({ onClose }: { onClose: () => void }) => {
         }}
       >
         {winner && (
-          <div className="absolute pointer-events-none top-1/2 left-1/2 w-50 h-50 rounded-2xl bg-linear-to-b from-primary/40 to-transparent/70 animate-glow-burst" />
+          <div className="absolute pointer-events-none top-1/2 left-1/2 w-50 h-50 rounded-2xl gradient-b-transparent animate-glow-burst" />
         )}
 
-        {/* Header */}
         <div className=" flex items-center justify-between px-4 py-3 bg-surface/80">
           <span className="text-xs tracking-[0.15em] uppercase text-muted-foreground">
             Tech Stack Slots
@@ -119,10 +94,9 @@ const SlotMachine = ({ onClose }: { onClose: () => void }) => {
           </button>
         </div>
 
-        {/* Reels */}
         <div className="flex gap-2 px-4 py-4 relative bg-surface/15">
-          <div className="absolute top-4 bottom-4 pointer-events-none left-[34%] w-1 bg-linear-to-b transparent via-primary/50 to-transparent" />
-          <div className="absolute top-4 bottom-4 pointer-events-none left-[66%] w-1 bg-linear-to-b transparent via-primary/50 to-transparent" />
+          <div className="absolute top-4 bottom-4 pointer-events-none left-[34%] w-1 gradient-transparent-primary" />
+          <div className="absolute top-4 bottom-4 pointer-events-none left-[66%] w-1 gradient-transparent-primary" />
           <Reel
             items={leftColumnIcons}
             spinning={spinning}
@@ -149,7 +123,6 @@ const SlotMachine = ({ onClose }: { onClose: () => void }) => {
           />
         </div>
 
-        {/* Bottom */}
         <div className="flex items-center justify-between px-4 py-3 bg-surface">
           <div className="min-h-7">
             {winner && (

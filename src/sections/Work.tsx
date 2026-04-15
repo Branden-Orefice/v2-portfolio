@@ -4,6 +4,7 @@ import GlowOrb from "@/components/GlowOrb";
 
 const projects = [
   {
+    id: 1,
     title: "brandenorefice.com (v1)",
     description:
       "First iteration of my portfolio site. Built with HTML, JavaScript, and CSS. Features dark-mode/light-mode, image hovering effect, and responsive design.",
@@ -14,6 +15,7 @@ const projects = [
     featured: true,
   },
   {
+    id: 2,
     title: "Sound Wave",
     description:
       "Create playlists and share with your friends. Search by artist, album, or song, create a playlist and generate them right to your personal Spotify account.",
@@ -24,6 +26,7 @@ const projects = [
     featured: false,
   },
   {
+    id: 3,
     title: "brandenorefice.com (v1)",
     description: "First iteration of my portfolio site.",
     image: "/images/first-portfolio.webp",
@@ -33,6 +36,7 @@ const projects = [
     featured: false,
   },
   {
+    id: 4,
     title: "brandenorefice.com (v1)",
     description: "First iteration of my portfolio site.",
     image: "/images/first-portfolio.webp",
@@ -56,16 +60,16 @@ const Work = () => {
           </span>
           <span className="block relative top-1 left-4 w-65 h-px gradient-glow-l"></span>
         </div>
-        {/* Project Cards */}
+
         <div className="flex flex-col gap-10 mb-12">
-          <GlowOrb top="15%" left="80%" />
-          {featured.map((project, index) => (
-            <FeaturedCard key={`-${index}`} project={project} index={index} />
+          <GlowOrb className="xl:top-[12%] xl:left-[97%] lg:top-[12%] lg:left-[95%] md:top-[9%] md:left-[94%] sm:top-[6%] sm:left-[92%] size-[500px]" />
+          {featured.map((project) => (
+            <FeaturedCard key={`featured-${project.id}`} project={project} />
           ))}
         </div>
         <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-          {notFeatured.map((project, index) => (
-            <SmallCard key={`small-${index}`} project={project} />
+          {notFeatured.map((project) => (
+            <SmallCard key={`small-${project.id}`} project={project} />
           ))}
         </div>
       </div>
