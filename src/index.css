@@ -411,11 +411,4 @@
     );
   }
 
-  .gradient-radial-bottom {
-    background: radial-gradient(
-      ellipse at 50% 100%,
-      color-mix(in srgb, var(--color-primary) 8%, transparent),
-      transparent 70%
-    );
-  }
 }
