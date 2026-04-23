@@ -22,13 +22,13 @@ export const projects = [
     },
     {
         id: 3,
-        title: "Sound Wave",
+        title: "Apple Cart",
         description:
-            "Create playlists and share with your friends. Search by artist, album, or song, create a playlist and generate them right to your personal Spotify account.",
-        image: "/images/playlist.webp",
-        tags: ["JavaScript", "Express", "Axios", "React"],
-        link: "https://sound-wave-app-efde8f11e684.herokuapp.com/",
-        github: "https://www.github.com/Branden-Orefice/Sound-Wave",
+            "A sleek and responsive Apple-inspired eCommerce storefront built to showcase clean UI design, reusable components, and dynamic cart functionality",
+        image: "/images/apple-cart.webp",
+        tags: ["JavaScript", "HTML", "SCSS"],
+        link: "https://e-commerce-ui-flame.vercel.app/",
+        github: "https://github.com/Branden-Orefice/e-commerce-ui",
         featured: false,
     },
     {
