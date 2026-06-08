@@ -1,7 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { Mouse } from "lucide-react";
 
 type Messages = {
@@ -78,78 +75,96 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 pt-20 pb-20 relative z-10">
-        <div className="space-y-8">
-          {/* Bubble 1 unmounts when done, sits above everything */}
-          {phase === "bubble1" && (
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look text-md text-primary">
+      <div className="container mx-auto px-6 pt-40 lg:pt-20 pb-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* LEFT COLUMN */}
+          <div className="space-y-8">
+            {phase === "bubble1" && (
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look text-md text-primary">
+                <img
+                  alt="Branden Orefice, developer of portfolio"
+                  src="/images/hero-img.webp"
+                  className="rounded-full w-10 h-10"
+                />
+                {typed}
+              </div>
+            )}
+
+            <div
+              className={`inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look text-primary text-md transition-opacity duration-300 ${
+                phase === "bubble2" || phase === "hero"
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none absolute"
+              }`}
+            >
               <img
-                alt="developer of portfolio"
+                alt="Branden Orefice, developer of portfolio"
                 src="/images/hero-img.webp"
                 className="rounded-full w-10 h-10"
               />
               {typed}
             </div>
-          )}
 
-          {/* Bubble 2 & Hero are always in the DOM together, never move */}
-          <div
-            className={`inline-flex items-center gap-2 px-6 py-2 rounded-full glass-look  text-primary text-md transition-opacity duration-300 ${phase === "bubble2" || phase === "hero" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-          >
-            <img
-              alt="developer of portfolio"
-              src="/images/hero-img.webp"
-              className="rounded-full w-10 h-10"
-            />
-            {typed}
+            <div
+              className={`space-y-8 transition-all duration-700 ${
+                phase === "hero"
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl">
+                Branden Orefice,
+                <br />I build digital things for the{" "}
+                <span className="text-primary">web</span>.
+              </h1>
+
+              <p className="text-lg text-muted-foreground max-w-lg">
+                I'm a software engineer specializing in React, TypeScript,
+                Next.js, and Node.js. I focus on building scalable, accessible,
+                and performant applications.
+              </p>
+
+              <div className="flex items-center gap-4">
+                <a href="#contact" className="button button--large">
+                  Contact Me
+                </a>
+              </div>
+            </div>
           </div>
 
+          {/* RIGHT COLUMN */}
           <div
-            className={`space-y-8 transition-opacity duration-500 ${phase === "hero" ? "opacity-100" : "opacity-0"}`}
+            className={`transition-all duration-700 ${
+              phase === "hero"
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
+            }`}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl">
-              Branden Orefice, <br />I build digital things for the{" "}
-              <strong className="text-primary">web</strong>.
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-lg">
-              I'm a software engineer specializing in React, TypeScript, Next.js
-              and Node. I focus on building scalable, accessible, and performant
-              applications.
-            </p>
+            <div className="relative max-w-md mx-auto lg:mr-0">
+              <div
+                className="
+            absolute inset-0
+            rounded-3xl
+            gradient-b-primary
+            animate-pulse
+          "
+              />
 
-            <div className="flex items-center gap-2">
-              <a href="#contact" className="button button--large">
-                Contact Me
-              </a>
-              <a
-                href="https://github.com/branden-orefice"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faGithub}
-                  size="xl"
-                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
+              <div className="relative glass-look rounded-3xl p-2 glow-border mb-4 lg:mb-0">
+                <img
+                  src="/images/hero-img.webp"
+                  alt="Branden Orefice, developer of portfolio"
+                  className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
-              </a>
-              <a
-                href="https://linkedin.com/in/branden-orefice"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  size="xl"
-                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animate-delay-800">
         <a
-          href="#about"
+          href="#work"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
         >
           <Mouse className="animate-bounce" />

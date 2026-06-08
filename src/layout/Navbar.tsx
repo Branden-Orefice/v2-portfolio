@@ -1,32 +1,31 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Menu, X } from "lucide-react";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { useEffect, useState } from "react";
 
 const navLinks = [
   {
     id: 1,
-    href: "#about",
-    number: "01",
-    label: "About",
+    href: "#work",
+    label: "Work",
     className: "animate-delay-200 animate-fade-in hover:text-primary",
   },
   {
     id: 2,
-    href: "#experience",
-    number: "02",
-    label: "Experience",
+    href: "#about",
+    label: "About",
     className: "animate-delay-300 animate-fade-in hover:text-primary",
   },
   {
     id: 3,
-    href: "#work",
-    number: "03",
-    label: "Work",
+    href: "#experience",
+    label: "Experience",
     className: "animate-delay-400 animate-fade-in hover:text-primary",
   },
   {
     id: 4,
     href: "#contact",
-    number: "04",
     label: "Contact",
     className: "animate-delay-500 animate-fade-in hover:text-primary",
   },
@@ -61,7 +60,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "stronger-glass-look py-3" : "bg-transparent py-5"} z-50`}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 border border-transparent ${isScrolled ? "stronger-glass-look py-3" : "bg-transparent py-5"} z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
@@ -79,14 +78,36 @@ const Navbar = () => {
         <div className="hidden md:flex gap-5 items-center">
           {navLinks.map((link) => (
             <a className={link.className} key={link.id} href={link.href}>
-              <span className="mr-1 text-sm">
-                {link.number}
-                <span className="text-primary text-lg">.</span>
-              </span>
               {link.label}
             </a>
           ))}
-          <div className="hidden md:block animate-delay-600 animate-fade-in">
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/branden-orefice"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="animate-delay-600 animate-fade-in"
+            >
+              <FontAwesomeIcon
+                icon={faGithub}
+                size="xl"
+                className="hover:text-primary/80 transition-all duration-300"
+              />
+            </a>
+            <a
+              href="https://linkedin.com/in/branden-orefice"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="animate-delay-700 animate-fade-in"
+            >
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                size="xl"
+                className="hover:text-primary/80 transition-all duration-300"
+              />
+            </a>
+          </div>
+          <div className="hidden md:block animate-delay-800 animate-fade-in">
             <a
               className="button button--small"
               href="https://resume-branden.vercel.app/"
@@ -119,13 +140,33 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 href={link.href}
               >
-                <span className="mr-1 text-sm">
-                  {link.number}
-                  <span className="text-primary text-lg">.</span>
-                </span>
                 {link.label}
               </a>
             ))}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/branden-orefice"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  size="xl"
+                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
+                />
+              </a>
+              <a
+                href="https://linkedin.com/in/branden-orefice"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  size="xl"
+                  className="stronger-glass-look p-2 rounded-full hover:text-primary/80 transition-all duration-300"
+                />
+              </a>
+            </div>
             <a
               className="button button--small text-center"
               href="https://resume-branden.vercel.app/"

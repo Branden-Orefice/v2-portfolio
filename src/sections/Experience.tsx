@@ -1,5 +1,5 @@
 import GlowOrb from "@/components/GlowOrb";
-import {experiences} from "@/data/experiences.ts";
+import { experiences } from "@/data/experiences.ts";
 
 const Experience = () => {
   return (
@@ -7,7 +7,6 @@ const Experience = () => {
       <GlowOrb className="top-[50%] left-[50%] sm:top-[55%] sm:left-[50%] size-[500px]" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mb-16">
-          <span className="text-primary">02.</span>{" "}
           <span className="text-xl font-medium tracking-wider">
             Where I've Worked
           </span>

@@ -11,7 +11,6 @@ const Contact = () => {
       <div className="container mx-auto px-6 relative z-10">
         <GlowOrb className="xl:top-[5%] xl:left-[3%] lg:top-[5%] lg:left-[5%]  md:top-[6%] md:left-[6%] sm:top-[4%] sm:left-[4%] size-[500px]" />
         <div className="max-w-3xl mb-16">
-          <span className="text-primary">04.</span>{" "}
           <span className="text-xl font-medium tracking-wider">
             Get In Touch
           </span>

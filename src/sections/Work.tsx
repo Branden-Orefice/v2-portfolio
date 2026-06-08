@@ -1,9 +1,7 @@
 import FeaturedCard from "@/components/work-section/FeaturedCard";
 import SmallCard from "@/components/work-section/SmallCard";
 import GlowOrb from "@/components/GlowOrb";
-import {projects} from "@/data/projects.ts";
-
-
+import { projects } from "@/data/projects.ts";
 
 const Work = () => {
   const featured = projects.filter((project) => project.featured);
@@ -12,7 +10,6 @@ const Work = () => {
     <section id="work" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mb-16">
-          <span className="text-primary">03.</span>{" "}
           <span className="text-xl font-medium tracking-wider">
             Things I've Built
           </span>

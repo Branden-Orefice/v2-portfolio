@@ -17,12 +17,10 @@ const About = () => {
   return (
     <section id="about" className="py-64 relative overflow-hidden">
       <GlowOrb className="md:top-[22%] md:left-[14%] lg:top-[29%] lg:left-[13%] sm:top-[22%] sm:left-[10%]  xl:left-[21%] xl:top-[33%] size-[500px]" />
-      <div className="absolute top-0 inset-x-0 h-72 pointer-events-none gradient-radial-top" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="animate-fade-in mb-16">
-              <span className="text-primary">01.</span>{" "}
               <span className="text-xl font-medium tracking-wider">
                 About Me
               </span>
