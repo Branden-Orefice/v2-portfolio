@@ -3,16 +3,22 @@ export const projects = [
     id: 1,
     title: "Atlas Recon",
     description:
-      "Full-stack web application for reconnaissance scanning with in-depth findings dashboard. Features user authentication, data visualization, and responsive design.",
+      "Atlas Recons is a full-stack application that has async scan processing and a findings dashboard tailored for WordPress sites. Features a vulnerability vault that stores over 40K plus vulnerabilities from top researchers via WordFence.",
     image: "/images/atlas-recon.webp",
     tags: [
       "React",
+      "TypeScript",
       "Node.js",
       "Express",
       "Supabase",
       "Heroku",
+      "Better-Auth",
+      "Docker",
+      "Redis",
+      "Upstash",
       "Vite",
-      "TypeScript",
+      "ShadcnUI",
+      "TailwindCSS",
     ],
     link: "https://atlas-recon-d46c3d984818.herokuapp.com/",
     github: "https://github.com/Branden-Orefice/discovery-scan-app",
@@ -20,6 +26,27 @@ export const projects = [
   },
   {
     id: 2,
+    title: "OfferLoop",
+    description:
+      "Job application tracking platform that automatically builds your job search pipeline from application emails and provides AI-powered insights/helpful tips. Use AI to help prepare you for interviews and more.",
+    image: "/images/offer-loop.webp",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Drizzle",
+      "Supabase",
+      "Better-Auth",
+      "ShadcnUI",
+      "TailwindCSS",
+      "Vercel",
+    ],
+    link: "https://offer-loop.vercel.app",
+    github: "https://github.com/Branden-Orefice/offer-loop",
+    featured: true,
+  },
+  {
+    id: 3,
     title: "brandenorefice.com (v1)",
     description:
       "First iteration of my portfolio site. Built with HTML, JavaScript, and CSS. Features dark-mode/light-mode, image hovering effect, and responsive design.",
@@ -30,7 +57,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "Code Switcher",
     description:
       "Landing page for switching between code editors. Built with HTML, CSS, and JavaScript.",
@@ -41,7 +68,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Apple Cart",
     description:
       "A sleek and responsive Apple-inspired eCommerce storefront built to showcase clean UI design, reusable components, and dynamic cart functionality",
